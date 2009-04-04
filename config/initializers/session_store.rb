@@ -6,7 +6,7 @@
 # no regular words or you'll be exposed to dictionary attacks.
 ActionController::Base.session = {
   :key         => '_twig.gr_session',
-  :secret      => '1e9404b773eee82da68ef392501fbad20ba5cc33c9464921797b5fea81584826352fe97d2e3d9e3272746506fd3bd904f4b8c10b834fd82e57686b19c8ce4262'
+  :secret      => '13db4a771d643f2eed80ecc328037de7a66242227190a035ec05507904929fd320b1a907f395a9a425f234a9272e8c85048f2f9c72252669e51c493ea9bf6673'
 }
 
 # Use the database for sessions instead of the cookie-based default,
