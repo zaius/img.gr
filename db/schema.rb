@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20090404174705) do
     t.integer  "image_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "post_id"
   end
 
   create_table "posts", :force => true do |t|
@@ -27,7 +28,6 @@ ActiveRecord::Schema.define(:version => 20090404174705) do
     t.string   "tweet"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "image_id"
   end
 
   create_table "users", :force => true do |t|

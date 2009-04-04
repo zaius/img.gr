@@ -4,3 +4,4 @@ tmp/**/*
 config/database.yml
 config/twitter_auth.yml
 db/*.sqlite3
+/public/system/*
