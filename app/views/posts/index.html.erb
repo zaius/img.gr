@@ -4,13 +4,16 @@
 <div class="post">
 <h3><%= post.title %></h3>
 <div>
-	<%= image_tag(post.image.image.url(:thumb), :class => "post_image") %>
+	<%=link_to(image_tag(post.image.image.url(:thumb), :class => "post_image"), :controller => :posts, :action => :show, :id => post.id) %>
 	<div class="tweet_status">
 		<% if !post.tweet.nil? %>
 		tweeted
 		<% else %>
 		not tweeted
-		<% end %>
+		<% end %><br>
+		<div class="description">
+		<%= post.body%>
+		</div>
 	</div>
 </div>
 <br clear="all">

@@ -62,6 +62,10 @@ div#posts .post{
 	border-bottom: 1px dashed #ccc;
 	padding-bottom:10px;
 }
+div#posts .post .description{
+	color: #999;
+	font-size: .9em;
+}
 div#posts {
 	margin-bottom:10px;
 }
@@ -98,6 +102,7 @@ form input[type=text], form input[type=file]{
 	font-size: 18px;
 	padding:4px;
 	margin-bottom:4px;
+	width:468px;
 }
 
 form input[type=submit]{
@@ -160,7 +165,6 @@ ol.tweets .published {
 }
 
 ul#nav{
-	margin-left:5px;
 	font-size:16px;
 }
 ul#nav li {
@@ -181,7 +185,9 @@ ul#nav li.active{
 ul#nav li.active a{
 		color:#fff;
 }
-	
+div#post #image{
+	text-align:center;
+}
 /* clear fix */
 /*.clearfix:after {
 	content: ".";

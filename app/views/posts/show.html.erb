@@ -1,1 +1,8 @@
-<%= @post.image.image.url %>
+<div id="post">
+	<h3>
+		<%= @post.title %>
+	</h3>
+	<div id="image">
+	<%=image_tag(@post.image.image.url(:large)) %>
+	</div>
+</div>
