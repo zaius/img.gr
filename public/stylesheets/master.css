@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background: #cef;
+  background: #000;
   margin: 0;
   padding: 0;
   color: #333; }
@@ -32,7 +32,7 @@ a {
   font-size: 3em;
   margin: 0;
   padding: 0;
-  color: #057;
+  color: #591107;
   margin-bottom: 0.3em; }
 #header #user_bar {
   float: right;
