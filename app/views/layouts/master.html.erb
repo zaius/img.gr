@@ -10,7 +10,7 @@
     <div id='wrapper'>
       <div id='header'>
         <h1>twig.gr</h1>
-        
+
         <div id='user_bar'>
           <% if logged_in? %>
             <%= image_tag(current_user.profile_image_url, :width => 24, :height => 24) %> Logged in as <strong>@<%= current_user.login %></strong>. <%= link_to 'Log out', '/logout' %>
@@ -20,6 +20,10 @@
         </div>
         <div class='clearfix'></div>
       </div>
+<ul id="nav">
+<%= create_tab("/posts","images",request.request_uri)%> 
+<%= create_tab("/tweets","tweets",request.request_uri)%> 
+</ul>
       <div id='contents'>
         <%= yield %>
       </div>

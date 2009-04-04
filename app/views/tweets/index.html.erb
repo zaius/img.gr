@@ -1,0 +1,13 @@
+<ol id="timeline" class='tweets'>
+  <% for tweet in @tweets %>
+    <li><%= link_to image_tag(tweet['user']['profile_image_url'], :border=>0, :class=>'thumb'), 'http://twitter.com/' + tweet['user']['screen_name'], :target => '_blank' %> 
+	<span class="tweet_body">
+<%= link_to tweet['user']['screen_name'], 'http://twitter.com/' + tweet['user']['screen_name'], :target => '_blank', :class => "screen-name" %>
+<%= tweet['text'] %><br>
+<span class="published">
+<%= time_ago_in_words(tweet['created_at']) %> ago
+</span>
+</span>
+</li>
+  <% end %>
+</ol>
