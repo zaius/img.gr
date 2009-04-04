@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.static '/:action', :controller => 'static'
+  #map.static '/:action', :controller => 'static'
 
-  map.root :controller => 'static', :action => 'index'
+  map.root :controller => 'posts', :action => 'index'
   map.resources :users
   map.resources :posts
   map.resources :images
