@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+  before_filter :login_required 
   before_filter :assign_user
+  
   def index
      @post = Post.new
      @posts = Post.find(:all,:conditions => ['user_id = ? ', current_user.id]  ) # , 
