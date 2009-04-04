@@ -1,16 +1,31 @@
-<h2>Welcome to Twiggr!</h2>
+<h2>Welcome to Twiggr, <%= @current_user.login %>!</h2>
+<div id="posts">
 <% @posts.each do |post| %>
-
-<div><%= post.title %></div>
-<%= image_tag(post.image.image.url(:thumb)) %>
-
+<div class="post">
+<h3><%= post.title %></h3>
+<div>
+	<%= image_tag(post.image.image.url(:thumb), :class => "post_image") %>
+	<div class="tweet_status">
+		<% if !post.tweet.nil? %>
+		tweeted
+		<% else %>
+		not tweeted
+		<% end %>
+	</div>
+</div>
+<br clear="all">
+<em><%= time_ago_in_words(post.created_at)%> ago</em>
+</div>
 <% end %>
+</div>
+<br>
 
-<% form_for @post, :html => { :multipart => true }  do |f| %>
+<% form_for @post, :html => { :multipart => true, :class=>"clearfix" }  do |f| %>
+<h4>post to Twig.gr</h4>
   <%= f.error_messages %>
  <%= render :partial => "/partials/post_form", :locals => {:f => f} %>
 
   <p>
-    <%= f.submit "Create" %>
+    <%= f.submit "Upload" %>
   </p>
 <% end %>
