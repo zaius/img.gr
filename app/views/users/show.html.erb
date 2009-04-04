@@ -1,0 +1,8 @@
+<div>
+	<h3><%= h @user.login %></h3>
+	
+	<% @user.images.each do |image| %>
+	  <%=image_tag(image.image.url(:thumb)) %>
+	<% end %>
+	
+</div>
