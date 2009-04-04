@@ -9,11 +9,12 @@
   <body>
     <div id='wrapper'>
       <div id='header'>
-        <h1>twig.gr</h1>
+        <a href="/"><h1>twig.gr</h1></a>
 
         <div id='user_bar'>
           <% if logged_in? %>
-            <%= image_tag(current_user.profile_image_url, :width => 24, :height => 24) %> Logged in as <strong>@<%= current_user.login %></strong>. <%= link_to 'Log out', '/logout' %>
+            <strong><%= image_tag(current_user.profile_image_url, :width => 17, :height => 17) %> <%= link_to h(current_user.login), user_path(current_user.login)%></strong>
+            <p><%= link_to  'logout', '/logout' %></p>
           <% else %>
             <%= link_to 'Login via Twitter', '/login' %>
           <% end %>
