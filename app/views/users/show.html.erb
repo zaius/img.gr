@@ -6,6 +6,14 @@
 	  <% unless @user.url.blank? %> &mdash; <a href="https://twitter.com/<%= h @user.url %>">URL</a><% end %>
 	</p>
 	
+	<h3>people @<%= h @user.login %> digs</h3>
+	<p>
+	  <% @user.user_tags.each_with_index do |tag,i| %>
+	    <%= link_to h(tag.twitter_login), user_path(tag.twitter_login) %>
+	    <%= ', ' if i < @user.user_tags.size-1 %>
+	  <% end %>
+	</p>
+	
 	<% @user.posts.each do |post| %>
 	  <%= link_to image_tag(post.image.image.url(:thumb)), post_path(post.id) %>
 	<% end %>
