@@ -8,7 +8,13 @@
 		<div class="description">
 		<%= image.description %>
 		</div>
-		<%= link_to image.user.login, user_path(image.user.login) %> <em><%= time_ago_in_words(image.created_at)%> ago</em>
+		<%= link_to image.user.login, user_path(image.user.login) %> <em><%= time_ago_in_words(image.created_at)%> ago</em><br>
+
+		<span class="tags">
+		<% image.user_tags.each do |ut| %>
+		<%= twitter_profile_link(ut.twitter_login) %>
+		<% end %>
+		</span>
 	</div>
 </div>
 <br clear="all" />

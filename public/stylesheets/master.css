@@ -73,37 +73,47 @@ em{
 .active{
 	background-color:#999;
 }
-#posts h3{
+#images h3{
 	margin-bottom:4px;
 	color:#5E130A;
 }
-div#posts .post{
+div#images .image{
 	border-bottom: 1px dashed #ccc;
 	padding-bottom:10px;
+	padding-top:10px;
 }
-div#posts .post .description{
+div#images .image .description{
 	color: #999;
 	font-size: .9em;
 }
-div#post .description{
+div#image .description{
 	color: #999;
 	font-size: .9em;
 	margin-bottom:20px;
 }
 div#user_tags{
 	margin-bottom:20px;
+	margin-top:20px;
+	padding:10px;
+	background-color:#eee;
+	border: 1px solid #666;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
 }
-div#posts {
+div#images {
 	margin-bottom:10px;
 }
-div#posts .post img.post_image{
+div#images .image img.post_image{
 	float:left;
 	margin-right:20px;
 }
-div#posts .post .tweeted{
+div#images .image .tweeted{
 	font-style:italic;
 	font-size: 10px;
 	color:#725C5B;
+}
+div#images .image .tags{
+	font-size:.8em;
 }
 p {
   line-height: 150%; }
@@ -136,8 +146,13 @@ form input[type=text], form input[type=file]{
 
 form input[type=submit]{
 	margin-left:100px;
-	background-color:#333;
+	background: transparent url(/images/button_upload.png) no-repeat scroll 0 0;
+	width: 136px;
+	height: 42px;
 	color:#ccc;
+	border: 0;
+	text-indent: -999px;
+	cursor: pointer;
 }
 form textarea{
 	width:480px;
@@ -146,6 +161,9 @@ form textarea{
 }
 form#new_post{
 
+}
+#tag_instructions{
+	text-align:center;
 }
 ol.tweets{
 	font-size:1.2em;
@@ -209,7 +227,7 @@ ul#nav li a{
 ul#nav .last{
   border: 0;
 }
-div#post #image{
+div #image{
 	text-align:center;
 }
 /* clear fix */
