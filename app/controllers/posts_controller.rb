@@ -22,6 +22,8 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
+    @user_tag = UserTag.new
+    @user_tags = UserTag.find(:all,:conditions => ['image_id = ? ', @post.image.id])
   end
   
   private

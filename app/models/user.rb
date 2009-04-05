@@ -4,4 +4,5 @@ class User < TwitterAuth::GenericUser
   # parent TwitterAuth::GenericUser class.
   has_many :posts
   has_many :images
+  has_many :user_tags
 end

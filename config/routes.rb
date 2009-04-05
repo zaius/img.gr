@@ -1,11 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
   #map.static '/:action', :controller => 'static'
 
+
+
+  map.connect "/:id", :controller => 'posts', :action => 'show', :requirements => {:id => /\d+/}
   map.root :controller => 'posts', :action => 'index'
   map.resources :users
   map.resources :posts
   map.resources :images
   map.resources :tweets
+  map.resources :user_tags
   
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090404174705) do
+ActiveRecord::Schema.define(:version => 20090404233449) do
 
   create_table "images", :force => true do |t|
     t.integer  "user_id"
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(:version => 20090404174705) do
     t.string   "title"
     t.text     "body"
     t.string   "tweet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_tags", :force => true do |t|
+    t.integer  "user_id",                      :null => false
+    t.integer  "image_id",                     :null => false
+    t.string   "twitter_login", :limit => 100, :null => false
+    t.integer  "x"
+    t.integer  "y"
+    t.integer  "width"
+    t.integer  "height"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
