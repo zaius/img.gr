@@ -1,20 +1,19 @@
 
 <div id="add_friends">
-	<label> add friends</label>
+	<label> tag your twitter friends</label>
 	<input autocomplete="off" id="q" type="text" name="q">
 	</div>
 <% content_for :head  do -%>
 	<script>
 	$(function(){
 	var search_box = $('#q');
-	search_box.autocomplete({ serviceUrl:'/tweets/friends', onSelect: 
-		function(value, user){ 
-			alert(user);
-		//$(this).val(value);
-		// $.post("/user_tags/create", {twitter_login:convo_id, user_id: user},function(data){
-		// 	$("#convo_people #users").html(data);
-		// 	search_box.val("");
-		// }, "script");
+	search_box.autocomplete({ serviceUrl:'/tweets/friends?i=<%=@post.image.id%>', onSelect: 
+		function(value, twitter_login){ 
+			$.post("/user_tags/create", {twitter_login:twitter_login, image_id: <%=@post.image.id%>},function(data){
+				var twitter_link = '<a href="http://twitter.com/' + twitter_login + '">' + twitter_login + "</a>";
+				$("#user_tags").append(twitter_link);
+			search_box.val("");
+		}, "script");
 		}
 	 }); // end autocomplete
 	}); // end page_load

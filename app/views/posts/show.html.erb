@@ -8,22 +8,18 @@
 	<div class="description">
 	<%=h @post.body %>
 	</div>
-	<% @user_tags.each do |tag| %>
-	<%= tag.twitter_login %>
-	<% end %>
-	<div id="twitter_logins">
+	
+	<div id="user_tags">
+		<% @user_tags.each do |tag| %>
+		<%= twitter_profile_link(tag.twitter_login) %>
+		<% end %>
 	</div>
 	
 	<div id="twitter_people" class="contents clearfix">
 		<%= render :partial => "/partials/add_users"%>
 
 	</div>
-	<% form_for @user_tag do |f| %>
-		<%= f.text_field :twitter_login %>
-		<input type="hidden" name="user_tag[image_id]" value="<%= @post.image.id.to_s %>" >
-		<input type="hidden" name="user_tag[user_id]" value="<%= @current_user.id.to_s %>" >
-	 <%= f.submit "add tag" %>
-	<% end %>
+
 </div>
 
 <% content_for :head do %>
