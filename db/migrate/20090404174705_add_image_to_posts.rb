@@ -4,6 +4,6 @@ class AddImageToPosts < ActiveRecord::Migration
   end
 
   def self.down
-    drop_colomn :images, :post_id
+    drop_column :images, :post_id
   end
 end
