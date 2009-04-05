@@ -101,11 +101,39 @@ div#image .description{
     padding:5px;
 }
 
-div.editing textarea{
-    padding:5px; width:400px;
+
+textarea{
+    padding:5px;
 }
+
+textarea#image_description{
+    font-size:1.5em;
+    line-height:1.2em;
+}
+div.editing textarea{
+    font-size:1.5em;
+    height:70px;
+    line-height:1.2em;
+    width:600px;
+}
+
+div.chars_left{
+    font-size:0.8em;
+    padding:3px;
+}
+
+form#new_image div.chars_left_wrapper{
+    padding:3px 120px 20px;
+}
+
 div.editing button{
-position:absolute; margin: 18px 5px;
+    font-size:1.5em;
+    height:50px;
+    margin:18px 7px;
+    position:absolute;
+    width:60px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
 }
 .description span.edit{
 padding: 3px; cursor:pointer; font-size:0.7em;
