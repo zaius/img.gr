@@ -53,14 +53,13 @@ em{
     text-align: right;
   }
 #nav {
-	border-bottom:1px solid #666;
+	float: left;
 }
 #nav h3{
 	display:inline;
-	padding: 2px 10px 0;
-	background-color:#ccc;
-	
+	border-right: 1px solid #eee;
 }
+
 .active{
 	background-color:#999;
 }
@@ -183,24 +182,19 @@ ol.tweets .published {
 
 ul#nav{
 	font-size:16px;
+	padding: 0;
 }
 ul#nav li {
 	display:inline;
-/*	-moz-border-radius:2px 2px 0 0;*/
-	background-color: #ccc;
-	padding: 2px 8px 0px;
-
+	margin: 0;
+  border-right: 1px solid #ccc;
 	}
 ul#nav li a{
-		padding: 2px 8px 3px;
-		line-height:20px;
+  padding: 0 8px;
+	line-height:20px;
 }
-ul#nav li.active{
-	background-color:#45585D;
-
-} 
-ul#nav li.active a{
-		color:#fff;
+ul#nav .last{
+  border: 0;
 }
 div#post #image{
 	text-align:center;

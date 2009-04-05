@@ -12,6 +12,11 @@
   <body>
     <div id="headlogo"><a href="/"><img src="/images/banner_800x200.png" /></a></div>
     <div id='wrapper'>
+      <ul id="nav">
+        <li><%= link_to("images", "/posts") %></li>
+        <li><%= link_to("upload","/posts/new") %></li>
+        <li class="last"><%= link_to("tweets","/tweets") %></li>
+      </ul>  
       <div id='header'>
         <div id='user_bar'>
           <% if logged_in? %>
@@ -23,17 +28,12 @@
         </div>
         <div class='clearfix'></div>
       </div>
-<ul id="nav">
-<%= create_tab("/posts","images",request.request_uri)%>
-<%= create_tab("/posts/new","upload",request.request_uri)%>
-<%= create_tab("/tweets","tweets",request.request_uri)%> 
-</ul>
       <div id='contents'>
         <%= yield %>
       </div>
     </div>
     <div id='footer'>
-      Copyright &copy; 2009 img.gr.
+      Copyright &copy; 2009 img.gr
     </div>
   </body>
 </html>
