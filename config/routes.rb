@@ -3,10 +3,9 @@ ActionController::Routing::Routes.draw do |map|
 
 
 
-  map.connect "/:id", :controller => 'posts', :action => 'show', :requirements => {:id => /\d+/}
-  map.root :controller => 'posts', :action => 'index'
+  map.connect "/:id", :controller => 'images', :action => 'show', :requirements => {:id => /\d+/}
+  map.root :controller => 'images', :action => 'index'
   map.resources :users
-  map.resources :posts
   map.resources :images
 
   map.resources :user_tags

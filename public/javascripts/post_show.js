@@ -3,7 +3,6 @@ var query_textbox, autocomp
 var coords
 $(function(){
 	
-	
 	$("img#main_image").imgNotes();
 	//$("img#main_image").imgAreaSelect();
 	$("img#main_image").click(function(e){

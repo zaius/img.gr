@@ -77,7 +77,7 @@
 		note_p_top = note_top + parseInt(note_data.height)+5;
 						
 		note_area_div = $("<div class='note'></div>").css({ left: note_left + 'px', top: note_top + 'px', width: note_data.width + 'px', height: note_data.height + 'px' });
-		note_text_div = $('<div class="notep" ><a href="http://twitter.com/'+note_data.note+'">@' + note_data.note + '</a></div>').css({ left: note_left + 'px', top: note_p_top + 'px'});
+		note_text_div = $('<div class="notep" >' + note_data.note + '</div>').css({ left: note_left + 'px', top: note_p_top + 'px'});
 	
 		$('body').append(note_area_div);
 		$('body').append(note_text_div);

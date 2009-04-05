@@ -1,28 +1,23 @@
 <div id="post">
-	<h3>
-		<%= @post.title %>
-	</h3>
 	<div id="image">
-	<%=image_tag(@post.image.image.url(:large), :id=>"main_image") %>
+    <%=image_tag(@image.image.url(:large), :id=>"main_image") %>
+
 	</div>
 	<div class="description">
-	<%=h @post.body %>
+    <%=h @image.description %>
 	</div>
 	
 	<div id="user_tags">
-		<% @user_tags.each do |tag| %>
-		<%= twitter_profile_link(tag.twitter_login) %>
+		<% @image.user_tags.each do |tag| %>
+      <%= twitter_profile_link(tag.twitter_login) %>
 		<% end %>
 	</div>
 	
 	<div id="twitter_people" class="contents clearfix">
 		<%= render :partial => "/partials/add_users"%>
-
 	</div>
-
 </div>
 
 <% content_for :head do %>
-	
 	<%= javascript_include_tag "post_show" %>
 <% end %>
