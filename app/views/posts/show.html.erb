@@ -11,6 +11,13 @@
 	<% @user_tags.each do |tag| %>
 	<%= tag.twitter_login %>
 	<% end %>
+	<div id="twitter_logins">
+	</div>
+	
+	<div id="twitter_people" class="contents clearfix">
+		<%= render :partial => "/partials/add_users"%>
+
+	</div>
 	<% form_for @user_tag do |f| %>
 		<%= f.text_field :twitter_login %>
 		<input type="hidden" name="user_tag[image_id]" value="<%= @post.image.id.to_s %>" >
@@ -18,3 +25,8 @@
 	 <%= f.submit "add tag" %>
 	<% end %>
 </div>
+
+<% content_for :head do %>
+	
+	<%= javascript_include_tag "post_show" %>
+<% end %>

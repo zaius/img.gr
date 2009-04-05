@@ -5,6 +5,9 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
     <title>twig.gr - <%= @title || "Powered by TwitterAuth" %></title>
     <%= stylesheet_link_tag 'master' %>
+	<%= javascript_include_tag "jquery" %>
+	<%= javascript_include_tag "jquery.autocomplete" %>
+		<%= yield :head %>
   </head>
   <body>
     <div id="headlogo"><a href="/"><img src="/images/banner_800x200.png" /></a></div>

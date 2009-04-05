@@ -1,0 +1,22 @@
+
+<div id="add_friends">
+	<label> add friends</label>
+	<input autocomplete="off" id="q" type="text" name="q">
+	</div>
+<% content_for :head  do -%>
+	<script>
+	$(function(){
+	var search_box = $('#q');
+	search_box.autocomplete({ serviceUrl:'/tweets/friends', onSelect: 
+		function(value, user){ 
+			alert(user);
+		//$(this).val(value);
+		// $.post("/user_tags/create", {twitter_login:convo_id, user_id: user},function(data){
+		// 	$("#convo_people #users").html(data);
+		// 	search_box.val("");
+		// }, "script");
+		}
+	 }); // end autocomplete
+	}); // end page_load
+	</script>
+<% end -%>
