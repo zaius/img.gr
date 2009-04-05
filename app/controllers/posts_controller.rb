@@ -23,6 +23,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user_tag = UserTag.new
     @user_tags = UserTag.find(:all,:conditions => ['image_id = ? ', @post.image.id])
+    @user_tags_json = UserTag.find(:all,:select=>"x as x1,y as y1,width,height,twitter_login as note", :conditions => ['image_id = ? ', @post.image.id])
   end
   
   private

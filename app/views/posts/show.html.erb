@@ -3,7 +3,7 @@
 		<%= @post.title %>
 	</h3>
 	<div id="image">
-	<%=image_tag(@post.image.image.url(:large)) %>
+	<%=image_tag(@post.image.image.url(:large), :id=>"main_image") %>
 	</div>
 	<div class="description">
 	<%=h @post.body %>

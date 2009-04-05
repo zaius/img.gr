@@ -5,8 +5,14 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
     <title>twig.gr - <%= @title || "Powered by TwitterAuth" %></title>
     <%= stylesheet_link_tag 'master' %>
+	<%= stylesheet_link_tag 'imgnotes' %>
+
 	<%= javascript_include_tag "jquery" %>
 	<%= javascript_include_tag "jquery.autocomplete" %>
+	<%= javascript_include_tag "jquery.imgareaselect-0.4" %>
+	<%= javascript_include_tag "jquery.imgnotes-0.2" %>
+	
+	
 		<%= yield :head %>
   </head>
   <body>

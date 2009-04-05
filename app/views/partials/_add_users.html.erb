@@ -1,17 +1,35 @@
 
+
+
 <div id="add_friends">
 	<label> tag your twitter friends</label>
 	<input autocomplete="off" id="q" type="text" name="q">
-	</div>
+</div>
+
 <% content_for :head  do -%>
 	<script>
 	$(function(){
+	var userTagArray = <%= @user_tags_json.to_json %>
+	notes = new Array();
+	for (var i=0; i<userTagArray.length; i++) {
+		notes[i] = userTagArray[i].user_tag;
+	}
+
 	var search_box = $('#q');
+	
 	search_box.autocomplete({ serviceUrl:'/tweets/friends?i=<%=@post.image.id%>', onSelect: 
 		function(value, twitter_login){ 
-			$.post("/user_tags/create", {twitter_login:twitter_login, image_id: <%=@post.image.id%>},function(data){
-				var twitter_link = '<a href="http://twitter.com/' + twitter_login + '">@' + twitter_login + "</a>";
+			//alert(coords.x1)
+			var new_note = {"x1":coords.x1,"y1":coords.y1,"width":coords.width,"height":coords.height,"note":"@"+twitter_login}
+			notes[notes.length+1] = new_note;
+		
+			$.post("/user_tags/create", {x:coords.x1,y:coords.y1,width:coords.width,height:coords.height,twitter_login:twitter_login, image_id: <%=@post.image.id%>},function(data){
+				var twitter_link = ' <a href="http://twitter.com/' + twitter_login + '">@' + twitter_login + "</a>";
 				$("#user_tags").append(twitter_link);
+				$("img#main_image").imgNotes();
+				$("img#main_image").imgAreaSelect({hide:true});
+				query_textbox.hide();
+				autocomp.hide();
 			search_box.val("");
 		}, "script");
 		}

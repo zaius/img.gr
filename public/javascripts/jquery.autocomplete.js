@@ -68,8 +68,8 @@
       var uid = new Date().getTime()
       var autocompleteElId = 'Autocomplete_' + uid;
 
-      if (!this.options.width) { this.options.width = this.el.width(); }
-      this.mainContainerId = 'AutocompleteContainter_' + uid;
+      if (!this.options.width) { this.options.width = this.el.width() +4; }
+      this.mainContainerId = 'AutocompleteContainter_' + uid;//#myEle\\S*
 
       $('<div id="' + this.mainContainerId + 
 '" style="position:absolute;"><div class="autocomplete-w1"><div class="autocomplete-w2"><div class="autocomplete" id="' + 
@@ -91,7 +91,7 @@ autocompleteElId + '" style="display:none; width:' + this.options.width + 'px;">
 
     fixPosition: function() {
       var offset = this.el.offset();
-      $('#' + this.mainContainerId).css({ top: (offset.top + this.el.height()) + 'px', left: offset.left + 'px' });
+      $('#' + this.mainContainerId).css({ top: (offset.top + this.el.height() + 8) + 'px', left: offset.left + 'px' });
     },
 
     enableKillerFn: function() {
