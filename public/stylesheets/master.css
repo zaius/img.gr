@@ -85,6 +85,21 @@ div#posts .post .description{
 	color: #999;
 	font-size: .9em;
 }
+
+.description{
+    padding:5px;
+}
+
+div.editing textarea{
+    padding:5px; width:400px;
+}
+div.editing button{
+position:absolute; margin: 18px 5px;
+}
+.description span.edit{
+padding: 3px; cursor:pointer; font-size:0.7em;
+}
+
 div#post .description{
 	color: #999;
 	font-size: .9em;

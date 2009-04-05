@@ -6,8 +6,9 @@
 	<%=link_to(image_tag(image.image.url(:thumb), :class => "post_image", :width => 50), :controller => :images, :action => :show, :id => image.id) %>
 	<div class="tweet_status">
 		<div class="description">
-		<%= image.description %>
-		</div>
+			<span class="body">	<%= image.description %> </span> 
+			<span class="edit">edit</span>
+				</div>
 		<%= link_to image.user.login, user_path(image.user.login) %> <em><%= time_ago_in_words(image.created_at)%> ago</em>
 	</div>
 </div>
