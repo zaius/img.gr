@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_filter :login_required, :except => 'index'
+  before_filter :login_required
   
   def index
     @images = current_user.images
