@@ -16,9 +16,9 @@ test:
   oauth_callback: "http://localhost:3000/oauth_callback"
 production:
   strategy: oauth
-  oauth_consumer_key: prodkey
-  oauth_consumer_secret: prodsecret
+  oauth_consumer_key: xi2AU9fq3AL8a8IFgaZYqQ
+  oauth_consumer_secret: dVK8UiQ18hC1Zle59KKBnQOe7hZ5xpwNBGMVbfuCmZ0
   base_url: "https://twitter.com"
   api_timeout: 10
   remember_for: 14 # days
-
+  oauth_callback: "http://twig.gr/oauth_callback"

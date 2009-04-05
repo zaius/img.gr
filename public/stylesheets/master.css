@@ -42,6 +42,11 @@ em{
   margin-top: 1.2em; }
   #header #user_bar img {
     vertical-align: middle; }
+  #header #user_bar p {
+    margin: 0;
+    font-size: .75em;
+    text-align: right;
+  }
 #nav {
 	border-bottom:1px solid #666;
 }

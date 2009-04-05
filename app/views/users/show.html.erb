@@ -1,0 +1,13 @@
+<div>
+	<h3>@<%= h @user.login %></h3>
+	<p>
+	  <%= @user.name %> &mdash;
+	  <a href="https://twitter.com/<%= h @user.login %>">Twitter</a>
+	  <% unless @user.url.blank? %> &mdash; <a href="https://twitter.com/<%= h @user.url %>">URL</a><% end %>
+	</p>
+	
+	<% @user.posts.each do |post| %>
+	  <%= link_to image_tag(post.image.image.url(:thumb)), post_path(post.id) %>
+	<% end %>
+	
+</div>
