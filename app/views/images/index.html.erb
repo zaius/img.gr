@@ -7,10 +7,16 @@
 	<div class="tweet_status">
 		<div class="description">
 	<span class="body">	<%= image.description %> </span> 
+	<% if image.last_tweeted.nil? %>
+	<a href="/tweets/create/<%= image.id %>">tweet?</a>
+	<% else %>
+	<a href="/tweets/create/<%= image.id %>">tweeted</a>
+	<% end %>
+	|
 	<span class="edit">edit</span>
 		</div>
 		<%= link_to image.user.login, user_path(image.user.login) %> <em><%= time_ago_in_words(image.created_at)%> ago</em><br>
-
+		
 		<span class="tags">
 		<% image.user_tags.each do |ut| %>
 		<%= twitter_profile_link(ut.twitter_login) %>
