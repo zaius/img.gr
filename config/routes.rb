@@ -4,8 +4,6 @@ ActionController::Routing::Routes.draw do |map|
 
 
   map.connect "/:id", :controller => 'images', :action => 'show', :requirements => {:id => /\d+/}
-  #map.connect "/:update", :controller => 'images', :action => 'update', :requirements => {:id => /\d+/}
-  # map.connect "/tweets/send/:id", :controller => "tweets", :action => "send"
   map.root :controller => 'images', :action => 'index'
   map.resources :users
   map.resources :images
