@@ -1,7 +1,9 @@
-<% form_for @post, :html => { :multipart => true }  do |f| %>
+<% form_for @post, :html => { :multipart => true, :class=>"clearfix" }  do |f| %>
+<h4>post to Twig.gr</h4>
   <%= f.error_messages %>
-  <%= render :partial => "/partials/post_form", :locals => {:f => f} %>
+ <%= render :partial => "/partials/post_form", :locals => {:f => f} %>
+
   <p>
-    <%= f.submit "Create" %>
+    <%= f.submit "Upload" %>
   </p>
 <% end %>

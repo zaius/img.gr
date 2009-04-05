@@ -10,10 +10,14 @@
 		<%= yield :head %>
   </head>
   <body>
+    <div id="headlogo"><a href="/"><img src="/images/banner_800x200.png" /></a></div>
     <div id='wrapper'>
+      <ul id="nav">
+        <li><%= link_to("images", "/posts") %></li>
+        <li><%= link_to("upload","/posts/new") %></li>
+        <li class="last"><%= link_to("tweets","/tweets") %></li>
+      </ul>  
       <div id='header'>
-        <a href="/"><h1>twig.gr</h1></a>
-
         <div id='user_bar'>
           <% if logged_in? %>
             <strong><%= image_tag(current_user.profile_image_url, :width => 17, :height => 17) %> <%= link_to h(current_user.login), user_path(current_user.login)%></strong>
@@ -24,16 +28,12 @@
         </div>
         <div class='clearfix'></div>
       </div>
-<ul id="nav">
-<%= create_tab("/posts","images",request.request_uri)%> 
-<%= create_tab("/tweets","tweets",request.request_uri)%> 
-</ul>
       <div id='contents'>
         <%= yield %>
       </div>
     </div>
     <div id='footer'>
-      Copyright &copy; 2009 twig.gr. Powered by <%= link_to 'TwitterAuth', 'http://mbleigh.com/twitter-auth', :target => '_blank' %>.
+      Copyright &copy; 2009 img.gr
     </div>
   </body>
 </html>
