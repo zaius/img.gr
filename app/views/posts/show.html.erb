@@ -5,4 +5,16 @@
 	<div id="image">
 	<%=image_tag(@post.image.image.url(:large)) %>
 	</div>
+	<div class="description">
+	<%=h @post.body %>
+	</div>
+	<% @user_tags.each do |tag| %>
+	<%= tag.twitter_login %>
+	<% end %>
+	<% form_for @user_tag do |f| %>
+		<%= f.text_field :twitter_login %>
+		<input type="hidden" name="user_tag[image_id]" value="<%= @post.image.id.to_s %>" >
+		<input type="hidden" name="user_tag[user_id]" value="<%= @current_user.id.to_s %>" >
+	 <%= f.submit "add tag" %>
+	<% end %>
 </div>

@@ -6,11 +6,12 @@
 <div>
 	<%=link_to(image_tag(post.image.image.url(:thumb), :class => "post_image"), :controller => :posts, :action => :show, :id => post.id) %>
 	<div class="tweet_status">
+		<div class="tweeted">
 		<% if !post.tweet.nil? %>
 		tweeted
 		<% else %>
 		not tweeted
-		<% end %><br>
+		<% end %></div>
 		<div class="description">
 		<%= post.body%>
 		</div>
