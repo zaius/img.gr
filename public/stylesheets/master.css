@@ -1,9 +1,11 @@
 body {
   font-family: 'Lucida Grande',sans-serif;
-  background: #eee;
+  background: #eee url(/images/side_bg.png) repeat scroll 0 0;
   margin: 0;
   padding: 0;
-  color: #333; }
+  color: #333; 
+
+}
 
 a {
   	color:#0084B4;
@@ -34,6 +36,9 @@ em{
   text-align: center;
   background-image: url('/images/tile.png');
   background-repeat: repeat-x;
+}
+#headlogo img{
+	border:0px;
 }
 #header h1 {
   float: left;

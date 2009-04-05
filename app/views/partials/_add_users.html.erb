@@ -10,7 +10,7 @@
 	search_box.autocomplete({ serviceUrl:'/tweets/friends?i=<%=@post.image.id%>', onSelect: 
 		function(value, twitter_login){ 
 			$.post("/user_tags/create", {twitter_login:twitter_login, image_id: <%=@post.image.id%>},function(data){
-				var twitter_link = '<a href="http://twitter.com/' + twitter_login + '">' + twitter_login + "</a>";
+				var twitter_link = '<a href="http://twitter.com/' + twitter_login + '">@' + twitter_login + "</a>";
 				$("#user_tags").append(twitter_link);
 			search_box.val("");
 		}, "script");
