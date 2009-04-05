@@ -1,6 +1,6 @@
 body {
   font-family: 'Lucida Grande',sans-serif;
-  background: #000;
+  background: #eee;
   margin: 0;
   padding: 0;
   color: #333; }
@@ -16,12 +16,13 @@ em{
   clear: both; }
 
 #wrapper {
-  background: white;
-  padding: 1.5em 2em;
+  background: #fff;
+  padding: 0 2em 1.5em 2em;
   width: 55em;
   -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
   border-radius: 1em;
+  border: 1px solid #eee;
   margin: 1em auto 0.5em; }
 
 #footer {
@@ -29,7 +30,11 @@ em{
   font-size: 0.8em;
   color: #666;
   padding-bottom: 1.5em; }
-
+#headlogo {
+  text-align: center;
+  background-image: url('/images/tile.png');
+  background-repeat: repeat-x;
+}
 #header h1 {
   float: left;
   font-size: 3em;
