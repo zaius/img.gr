@@ -1,21 +1,27 @@
 <div>
-	<h3>@<%= h @user.login %></h3>
+	<h3>@<%= @user.login %></h3>
 	<p>
-	  <%= @user.name %> &mdash;
 	  <a href="https://twitter.com/<%= h @user.login %>">Twitter</a>
-	  <% unless @user.url.blank? %> &mdash; <a href="https://twitter.com/<%= h @user.url %>">URL</a><% end %>
+	  <% unless @user.url.blank? %> &mdash; <a href="<%= h @user.url %>">URL</a><% end %>
 	</p>
 	
-	<h3>people @<%= h @user.login %> digs</h3>
+	<h3>people @<%= h @user.login %> has tagged</h3>
 	<p>
 	  <% @user.user_tags.each_with_index do |tag,i| %>
-	    <%= link_to h(tag.twitter_login), user_path(tag.twitter_login) %>
-	    <%= ', ' if i < @user.user_tags.size-1 %>
+	    <%= user_tagged_link(tag.twitter_login) %>
+	
 	  <% end %>
 	</p>
-	
+	<h3>@<%= @user.login %>'s images:</h3>
 	<% @user.images.each do |image| %>
 	  <%= link_to image_tag(image.image.url(:thumb)), image_path(image) %>
+	<% end %>
+	<h3>images @<%= @user.login %> has been tagged in:</h3>
+	<% @user_tags.each do |tag| %>
+	<div class="search_thumb">
+	<%= image_tag(tag.image.image.url(:thumb))%>
+	<%= twitter_profile_link(tag.user.login) %>
+	</div>
 	<% end %>
 	
 </div>

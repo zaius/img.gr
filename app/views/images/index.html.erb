@@ -3,7 +3,7 @@
 <% @images.each do |image| %>
 <div class="image" id="<%= image.id %>">
 <div>
-	<%=link_to(image_tag(image.image.url(:thumb), :class => "post_image", :width => 50), :controller => :images, :action => :show, :id => image.id) %>
+	<%=link_to(image_tag(image.image.url(:thumb), :class => "post_image", :width => 90), :controller => :images, :action => :show, :id => image.id) %>
 	<div class="tweet_status">
 		
 		<%= link_to image.user.login, user_path(image.user.login) %>
@@ -23,7 +23,7 @@
 		
 		<span class="tags">
 		<% if !image.user_tags.empty? %>
-		Friends Tagged: 
+		People Tagged: 
 		<% image.user_tags.each do |ut| %>
 		<%= user_tagged_link(ut.twitter_login) %>
 		<% end %>
