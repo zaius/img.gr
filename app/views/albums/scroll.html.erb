@@ -1,0 +1,8 @@
+<div>
+  Photo <%= @index %> of <%= @album.images.count %>
+</div>
+
+<%= link_to('previous', "?index=#{@index - 1}") if @index > 1 %>
+<%= link_to('next', "?index=#{@index + 1}") if @index < @album.images.count %>
+
+<%= render 'partials/show_image' %>

@@ -31,6 +31,13 @@ class AlbumsController < ApplicationController
       redirect_to(album_path(@album)) : render(:action => :edit)
   end
 
+  def scroll
+    @album = Album.find(params[:id])
+    @index = params[:index].to_i
+    @index ||= 1
+    @image = @album.images[@index - 1]
+  end
+
   def add_images
     @album = Album.find(params[:id])
   end
