@@ -9,6 +9,12 @@ class ImagesController < ApplicationController
     @image = Image.new
   end
   
+  def search
+    @tagged_user = params[:id]
+    @user_tags = UserTag.find(:all, :conditions => ["twitter_login = ?", params[:id]])
+    
+  end
+  
   def create
     
     # image = Image.new(params[:image])

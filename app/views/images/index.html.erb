@@ -5,21 +5,28 @@
 <div>
 	<%=link_to(image_tag(image.image.url(:thumb), :class => "post_image", :width => 50), :controller => :images, :action => :show, :id => image.id) %>
 	<div class="tweet_status">
-		<div class="description">
-	<span class="body">	<%= image.description %> </span> 
-	<% if image.last_tweeted.nil? %>
-	<a href="/tweets/create/<%= image.id %>">tweet?</a>
-	<% else %>
-	<a href="/tweets/create/<%= image.id %>">tweeted</a>
-	<% end %>
-	|
-	<span class="edit">edit</span>
+		
+		<%= link_to image.user.login, user_path(image.user.login) %>
+		
+		<div class="description"><%= image.description %></div>
+	
+		<div class="options">
+			<% if image.last_tweeted.nil? %>
+			<a href="/tweets/create/<%= image.id %>">tweet?</a>
+			<% else %>
+			<a href="/tweets/create/<%= image.id %>">tweeted</a>
+			<% end %>
+			| 
+			<span class="edit">edit</span>
 		</div>
-		<%= link_to image.user.login, user_path(image.user.login) %> <em><%= time_ago_in_words(image.created_at)%> ago</em><br>
+		<em><%= time_ago_in_words(image.created_at)%> ago</em><br>
 		
 		<span class="tags">
+		<% if !image.user_tags.empty? %>
+		Friends Tagged: 
 		<% image.user_tags.each do |ut| %>
-		<%= twitter_profile_link(ut.twitter_login) %>
+		<%= user_tagged_link(ut.twitter_login) %>
+		<% end %>
 		<% end %>
 		</span>
 

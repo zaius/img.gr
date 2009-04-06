@@ -1,0 +1,8 @@
+<h3>Images tagged of <%= twitter_profile_link(@tagged_user) %></h3>
+
+<% @user_tags.each do |tag| %>
+	<div class="search_thumb">
+	<a href="/<%=tag.image.id%>"><%= image_tag( tag.image.image.url(:thumb)) %></a>
+	<%= twitter_profile_link(tag.user.login) %>
+	</div>
+<% end %>

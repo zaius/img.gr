@@ -312,3 +312,42 @@ html[xmlns] .clearfix {
 .autocomplete div { padding:4px 5px 2px; white-space:nowrap; }
 .autocomplete strong { font-weight:normal; color:#244772; }
 .autocomplete div img.avatar { width:24px; height:24px;}
+
+#contents:after {
+	clear: both;
+	content: '';
+	display: block;
+}
+
+.search_thumb {
+	float: left;
+	width: 140px;
+}
+
+.tweet_status {
+	position: relative;
+	margin-left: 75px;
+}
+
+div#images .image .description {
+	color: #000;
+	padding-right: 100px;
+}
+
+.options {
+	position: absolute;
+	top: 0; right: 0;
+	font-size: 12px;
+	font-weight: bold;
+	color: #ccc;
+	text-align: right;
+}
+
+div#images .image .tags {
+	color: #aaa;
+	line-height: 14px;
+}
+
+div#images .image .tags a { 
+	font-size: 14px;
+}
