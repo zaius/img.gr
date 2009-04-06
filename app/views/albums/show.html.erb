@@ -1,22 +1,23 @@
+<h3>Album</h3>
+
 <div id="post">
   <% @album.images.each do |image| %>
     <div id="image">
-      <%= image_tag(image.image.url(:thumb)) %>
-    </div>
+      <%= image_tag(image.image.url(:medium)) %><br>
 
-    <div class="description">
       <%=h image.description %>
+
     </div>
-    
+<br>
+    <% if !image.user_tags.empty? %>
     <div id="user_tags">
       <% image.user_tags.each do |tag| %>
         <%= twitter_profile_link(tag.twitter_login) %>
       <% end %>
     </div>
+	<% end %>
     
-    <div id="twitter_people" class="contents clearfix">
-      <%= render :partial => "/partials/add_users"%>
-    </div>
+
   <% end %>
 </div>
 

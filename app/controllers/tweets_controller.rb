@@ -18,6 +18,7 @@ class TweetsController < ApplicationController
     current_user.twitter.post('/statuses/update.json','status' => new_status )
     image.last_tweeted = Time.now
     image.save
+    flash[:notice] = "img.gr has tweeted"
     redirect_to :controller => "images", :action => "index"
   end 
 

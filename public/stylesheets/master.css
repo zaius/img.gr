@@ -100,7 +100,11 @@ div#images .image .description{
 div#image .description{
     padding:5px;
 }
-
+h2{
+	color:#5E280A;
+	font-family: arial,sans-serif;
+	border-bottom: 1px dashed #bbb;
+}
 
 textarea{
     padding:5px;

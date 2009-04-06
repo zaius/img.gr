@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/:id", :controller => 'images', :action => 'show', :requirements => {:id => /\d+/}
 
   map.connect "/tagged/:id", :controller => "images", :action => "search"
-
+  map.connect "/all", :controller => "images", :action => "all"
   map.root :controller => 'images', :action => 'index'
   map.resources :users
   map.resources :albums do |album|

@@ -5,6 +5,10 @@ class ImagesController < ApplicationController
     @images = current_user.images
   end
   
+  def all
+    @images = Image.find(:all, :order => "created_at desc")
+  end
+  
   def new
     @image = Image.new
   end
