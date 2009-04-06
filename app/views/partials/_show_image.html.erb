@@ -1,0 +1,25 @@
+<div id="post">
+	<div id="image">
+    <%=image_tag(@image.image.url(:large), :id=>"main_image") %>
+
+	</div>
+	<div class="description">
+    <%=h @image.description %>
+	</div>
+	
+	<div id="user_tags">
+		<% @image.user_tags.each do |tag| %>
+      <%= twitter_profile_link(tag.twitter_login) %>
+		<% end %>
+	</div>
+	
+	<div id="tag_instructions">Click to tag your twitter friends</div>
+	
+	<div id="twitter_people" class="contents clearfix">
+		<%= render :partial => "/partials/add_users"%>
+	</div>
+</div>
+
+<% content_for :head do %>
+	<%= javascript_include_tag "post_show" %>
+<% end %>

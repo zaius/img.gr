@@ -1,7 +1,7 @@
 <div id="post">
   <% @album.images.each do |image| %>
     <div id="image">
-      <%= image_tag(image.image.url(:thumb)) %>
+      <%= image_tag(image.image.url(:medium)) %>
     </div>
 
     <div class="description">
@@ -13,10 +13,6 @@
         <%= twitter_profile_link(tag.twitter_login) %>
       <% end %>
     </div>
-    
-    <div id="twitter_people" class="contents clearfix">
-      <%= render :partial => "/partials/add_users"%>
-    </div>
   <% end %>
 </div>
 
@@ -25,7 +21,3 @@
     Add photos to this album
   <% end %>
 </div>
-
-<% content_for :head do %>
-	<%= javascript_include_tag "post_show" %>
-<% end %>
