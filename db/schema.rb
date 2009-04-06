@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090405225314) do
+ActiveRecord::Schema.define(:version => 20090405234736) do
+
+  create_table "albums", :force => true do |t|
+    t.string   "title",       :null => false
+    t.string   "description"
+    t.integer  "user_id",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "images", :force => true do |t|
     t.integer  "user_id"
@@ -20,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20090405225314) do
     t.datetime "updated_at"
     t.integer  "post_id"
     t.string   "description"
+    t.integer  "album_id"
     t.datetime "last_tweeted"
   end
 
@@ -31,6 +40,16 @@ ActiveRecord::Schema.define(:version => 20090405225314) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "user_tags", :force => true do |t|
     t.integer  "user_id",                      :null => false
@@ -71,6 +90,8 @@ ActiveRecord::Schema.define(:version => 20090405225314) do
     t.string   "time_zone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "token",                        :limit => 40
+    t.datetime "token_expiry"
   end
 
 end

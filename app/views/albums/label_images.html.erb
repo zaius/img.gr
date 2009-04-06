@@ -1,0 +1,24 @@
+<h1><%=h @album.title %></h1>
+<h2><%=h @album.description %></h2>
+
+<div id="post">
+  <% form_for @album do |album_form| %>
+    <% album_form.fields_for :images do |image_form| %>
+      <%= image_tag(image_form.object.image.url(:thumb)) %>
+      <%= image_form.text_area :description %>
+      <br style="clear: both;" />
+    <% end %>
+
+    <%= album_form.submit 'Save' %>
+  <% end %>
+</div>
+
+<div>
+  <% link_to edit_album_url(@album) do %>
+    Add photos to this album
+  <% end %>
+</div>
+
+<% content_for :head do %>
+	<%= javascript_include_tag "post_show" %>
+<% end %>

@@ -1,5 +1,5 @@
 <% form_for @image, :html => { :multipart => true, :class=>"clearfix" }  do |f| %>
-<h4>post to Twig.gr</h4>
+<h4>Upload an Image</h4>
   <%= f.error_messages %>
  <%= render :partial => "/partials/image_form", :locals => {:f => f} %>
 

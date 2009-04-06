@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_filter :login_required
+  before_filter :login_required, :except => :flash_create
   
   def index
     @images = current_user.images
@@ -9,6 +9,22 @@ class ImagesController < ApplicationController
     @image = Image.new
   end
   
+  def flash_create
+    u = User.find_by_id(params[:user_id])
+    raise 'Invalid authentication' if u.token_valid(params[:token])
+
+    @image = Image.new(:image => params[:Filedata])
+    @image.user = u
+
+    if @image.save
+      Album.find(params[:album_id]).images << @image
+      render :text => 'done ftw!'
+      # render :partial => 'photo', :object => @photo
+    else
+      render :text => "error"
+    end
+  end
+
   def search
     @tagged_user = params[:id]
     @user_tags = UserTag.find(:all, :conditions => ["twitter_login = ?", params[:id]])
@@ -16,19 +32,10 @@ class ImagesController < ApplicationController
   end
   
   def create
-    
-    # image = Image.new(params[:image])
-    # post = Post.create(params[:post])
-    # current_user.twitter.post('/statuses/update.json','status' => post.tweet)
-    # image.post_id = post.id
-    # image.save
-    # redirect_to :action => :index
-    
     @image = Image.new(params[:image])
     @image.user = current_user
-
     if @image.save
-      redirect_to :action => :index
+      redirect_to images_path
     else
       render :action => :new
     end

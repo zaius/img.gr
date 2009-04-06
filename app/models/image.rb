@@ -2,6 +2,8 @@ class Image < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :user_id
 
+  belongs_to :album
+
   has_many :user_tags
 
   has_attached_file :image,

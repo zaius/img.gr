@@ -1,0 +1,31 @@
+<div id="post">
+  <% @album.images.each do |image| %>
+    <div id="image">
+      <%= image_tag(image.image.url(:thumb)) %>
+    </div>
+
+    <div class="description">
+      <%=h image.description %>
+    </div>
+    
+    <div id="user_tags">
+      <% image.user_tags.each do |tag| %>
+        <%= twitter_profile_link(tag.twitter_login) %>
+      <% end %>
+    </div>
+    
+    <div id="twitter_people" class="contents clearfix">
+      <%= render :partial => "/partials/add_users"%>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <% link_to edit_album_url(@album) do %>
+    Add photos to this album
+  <% end %>
+</div>
+
+<% content_for :head do %>
+	<%= javascript_include_tag "post_show" %>
+<% end %>
