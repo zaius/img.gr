@@ -1,9 +1,25 @@
 class TweetsController < ApplicationController
+  include ActionView::Helpers::TextHelper
   require 'hpricot'
   before_filter :login_required 
   def index
     @tweets = current_user.twitter.get('/statuses/friends_timeline') 
   end
+  
+  def create
+    image = Image.find(params[:id])
+    tags = ""
+    description = image.description rescue ""
+    image.user_tags.each do |ut|
+      tags += "@" + ut.twitter_login + " "
+    end
+    status = "http://img.gr:3000/" + params[:id] + " " + tags + " " + description
+    new_status = truncate(status, 140)
+    current_user.twitter.post('/statuses/update.json','status' => new_status )
+    image.last_tweeted = Time.now
+    image.save
+    redirect_to :controller => "images", :action => "index"
+  end 
 
   def friends
     friends = Hpricot(current_user.twitter.get('/statuses/friends.xml?screen_name='+current_user.login))

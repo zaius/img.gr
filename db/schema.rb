@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20090405234736) do
     t.integer  "post_id"
     t.string   "description"
     t.integer  "album_id"
+    t.datetime "last_tweeted"
   end
 
   create_table "posts", :force => true do |t|

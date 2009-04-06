@@ -25,6 +25,12 @@ class ImagesController < ApplicationController
     end
   end
 
+  def search
+    @tagged_user = params[:id]
+    @user_tags = UserTag.find(:all, :conditions => ["twitter_login = ?", params[:id]])
+    
+  end
+  
   def create
     @image = Image.new(params[:image])
     @image.user = current_user
@@ -41,6 +47,16 @@ class ImagesController < ApplicationController
       @user_tag = UserTag.new
       @user_tags = UserTag.find(:all,:conditions => ['image_id = ? ', @image])
       @user_tags_json = UserTag.find(:all,:select=>"x as x1,y as y1,width,height,twitter_login as note", :conditions => ['image_id = ? ', @image.id])
+  end
+
+  def update
+    # find image with given id
+    image = Image.find(params[:id])
+    # update description
+    image.description = params[:description]
+    # save image
+    image.save
+    render :text => "OK"
   end
 
 end

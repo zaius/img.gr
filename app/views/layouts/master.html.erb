@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-  <title>img.gr - <%= @title || "Powered by TwitterAuth" %></title>
+  <title><%= @app_title || "img.gr" %> - <%= @app_description || "a photo-tagging tool for Twitter" %></title>
     <%= stylesheet_link_tag 'master' %>
 	<%= stylesheet_link_tag 'imgnotes' %>
 	<%= javascript_include_tag "jquery" %>
@@ -38,6 +38,7 @@
         <%= yield %>
       </div>
     </div>
+	<div id="main_bg_ground"></div>
     <div id='footer'>
       Copyright &copy; 2009 img.gr
     </div>
