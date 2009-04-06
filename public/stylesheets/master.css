@@ -117,6 +117,9 @@ div.editing textarea{
     width:600px;
 }
 
+div.editing div.chars_left{
+    margin-left: 75px;
+}
 div.chars_left{
     font-size:0.8em;
     padding:3px;
