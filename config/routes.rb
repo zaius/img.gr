@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+
   #map.static '/:action', :controller => 'static'
 
 
@@ -6,6 +7,10 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/:id", :controller => 'images', :action => 'show', :requirements => {:id => /\d+/}
   map.root :controller => 'images', :action => 'index'
   map.resources :users
+  map.resources :albums do |album|
+    album.resource :images
+
+  end
   map.resources :images
 
   map.resources :user_tags

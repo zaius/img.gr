@@ -1,0 +1,14 @@
+<% form_for @album, :html => { :multipart => true, :class=>"clearfix" }  do |f| %>
+  <h4>Create a new album</h4>
+  <%= f.error_messages %>
+
+  <%= f.label "Title" %>
+  <%= f.text_field :title %><br>
+
+  <%= f.label "Description" %>
+  <%= f.text_area :description %><br>
+
+  <p>
+    <%= f.submit "Create!" %>
+  </p>
+<% end %>

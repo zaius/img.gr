@@ -1,0 +1,24 @@
+<h2>your albums</h2>
+<div id="images">
+<% @albums.each do |album| %>
+  <div class="image">
+  <div>
+    <% link_to album_url(album) do %>
+      <%= image_tag(album_image(album), :class => "post_image", :width => 50) %>
+    <% end %>
+
+    <div class="tweet_status">
+      <div class="title">
+        <%=h album.title %>
+      </div>
+      <div class="description">
+        <%=h album.description %>
+      </div>
+    </div>
+  </div>
+  <br clear="all" />
+  </div>
+<% end %>
+<%= link_to 'Create a new Album', new_album_url %>
+</div>
+<br />
