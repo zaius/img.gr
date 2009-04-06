@@ -8,12 +8,12 @@ limitChars($(this), 140, these_chars_left);
 
 
 
-$('div.description').find('.edit').click(function(){
+$('div.tweet_status').find('.edit').click(function(){
+var ts = $(this).parents("div.tweet_status");
+var this_description = ts.find('div.description');
 
-var this_description = $(this).parents('div.description');
 var this_id = this_description.parents('div.image').attr('id');
 this_text = this_description.find('span.body').text();
-
 this_description.find('span').hide();
 var edit_html = '<div class="editing"><textarea maxlength=120>' 
 + $.trim(this_text) + 

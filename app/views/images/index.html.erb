@@ -8,7 +8,7 @@
 		
 		<%= link_to image.user.login, user_path(image.user.login) %>
 		
-		<div class="description"><%= image.description %></div>
+		<div class="description"><span class="body"><%= image.description %></span></div>
 	
 		<div class="options">
 			<% if image.last_tweeted.nil? %>
