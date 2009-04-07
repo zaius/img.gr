@@ -1,4 +1,3 @@
 class ApplicationController < ActionController::Base
-  layout 'master'
-   helper :all
+  helper :all
 end
