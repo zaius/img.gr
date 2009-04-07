@@ -33,9 +33,10 @@ class AlbumsController < ApplicationController
 
   def scroll
     @album = Album.find(params[:id])
-    @index = params[:index].to_i
-    @index ||= 1
-    @image = @album.images[@index - 1]
+    @start_index = params[:index].to_i
+    @image = @album.images[@start_index]
+
+    @user_tags_json = UserTag.find(:all,:select=>"x as x1,y as y1,width,height,twitter_login as note", :conditions => ['image_id = ? ', @image.id])
   end
 
   def add_images

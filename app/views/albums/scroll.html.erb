@@ -1,8 +1,67 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'jquery.hotkeys' %>
+
+  <script>
+    jQuery.preloadImages = function() {
+      for(var i = 0; i < arguments.length; i++) {
+        jQuery("<img>").attr("src", arguments[i]);
+      }
+    }
+
+
+    $(document).ready(function() {
+      // Create an array with all of the image urls
+      var images = new Array();
+      <% @album.images.each_with_index do |image, index| -%>
+        images[<%= index %>] = "<%= image.image.url(:large) %>";
+      <% end %>
+
+      var current_index = <%= @start_index %>;
+      $.preloadImages(images[prev_index()]);
+      $.preloadImages(images[next_index()]);
+
+      // Functions for moving forward and back
+      function prev_pic() {
+        current_index = prev_index();
+        $('#main_image').attr({src : images[current_index]});
+        $.preloadImages(images[prev_index()]);
+        $("#index").html(current_index + 1);
+      }
+
+      function next_pic() {
+        current_index = next_index();
+        $('#main_image').attr({src : images[current_index]});
+        $.preloadImages(images[next_index()]);
+        $("#index").html(current_index + 1);
+      };
+
+
+      // Shortcut functions to make the array circular
+      function prev_index() {
+        var result = current_index - 1;
+        return result < 0 ? result + images.length : result
+      }
+      function next_index() {
+        return (current_index + 1) % images.length;
+      }
+
+
+      // Add keyboard and link bindings
+      $("#prev_link").click(prev_pic);
+      $(document).bind('keydown', 'left', prev_pic);
+      $("#next_link").click(next_pic);
+      $(document).bind('keydown', 'right', next_pic);
+    });
+  </script>
+<% end %>
+
 <div>
-  Photo <%= @index %> of <%= @album.images.count %>
+  Photo <span id="index"><%= @start_index + 1 %></span> of <%= @album.images.count %>
 </div>
 
-<%= link_to('previous', "?index=#{@index - 1}") if @index > 1 %>
-<%= link_to('next', "?index=#{@index + 1}") if @index < @album.images.count %>
+<a id="prev_link" href="javascript:void();">previous</a>
+<a id="next_link" href="javascript:void();">next</a>
 
-<%= render 'partials/show_image' %>
+<div id="scroll_image">
+  <%= render 'partials/show_image' %>
+</div>
